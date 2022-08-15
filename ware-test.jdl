@@ -1,0 +1,213 @@
+/**Attachment(file) content */
+entity AttachmentContent {
+	/**Max size is 10 MB for file content*/
+	bytes Blob required maxbytes(10240)
+}
+
+ /**AttachmentInfo(file)*/
+entity Attachment {
+	/**File name*/
+    name String  required minlength(1) maxlength(20)
+    /**File size*/
+    sizeAttachment Long required
+    /**File format, content type*/
+    contentType String required
+}
+
+/**Category*/
+entity Category {
+	/**Category name*/
+    name String required unique minlength(2) maxlength(20)
+    status Status
+}
+
+/**Currency*/
+entity Currency {
+    name String required unique minlength(2) maxlength(5)
+    status Status required
+}
+
+/**Measurement(Kilo, Metr, Litr)*/
+entity Measurement {
+	/**Name of measurement*/
+    name String required unique minlength(2) maxlength(20)
+    status Status required
+}
+
+/**Product*/
+entity Product {
+	/**Name of product*/
+    name String required minlength(2) maxlength(30)
+    status Status required
+    /**Unoque code of product*/
+	code String required unique
+}
+
+/**OutPut Product(Only one type of product)*/
+entity OutputProduct{
+	/**Amount of the product*/
+    amount Long
+    /**Price(total number of products)*/
+    price Long
+}
+
+/**Warehouse(Storehouse)*/
+entity Warehouse {
+	/**Name of the warehouse*/
+    name String required unique
+    status Status required
+}
+
+/**User(Manager of the warehouse)*/
+entity Users {
+	/**First Name of User*/
+    firstName String required minlength(2) maxlength(30)
+    /**Last Name of User*/
+    lastName String required minlength(2) maxlength(30)
+    /**Phone number of User*/
+    phoneNumber String required unique minlength(9) maxlength(13) pattern(/[+]?[89]{3}\d{9}|\d{9}/)
+    /**Unique code of user*/
+    code String required unique
+    password String required minlength(6)
+    status Status
+}
+
+/**Input(Contains Many InputProducts)*/
+entity Input{
+	/**Name of the input(brief description)*/
+    name String required  minlength(2) maxlength(50)
+    /**Input date*/
+    date Instant   required
+    /**Unique code of the input*/
+    code String required unique
+    //    factureNumber String
+}
+
+/**Output(Contains Many OutputProducts)*/
+entity Output {
+	/**Name of the output(brief description)*/
+    name String required minlength(2) maxlength(30)
+    /**Output date*/
+    date Instant   required
+	/**Unique code of the output*/
+    code String required unique
+    //    factureNumber String
+}
+
+/**InputProduct(OnlyOne type of the product)*/
+entity InputProduct{
+	/**Amount of the product*/
+    amount Long required
+    /**Total price of the product input*/
+    price Long required
+    /**Expire date of the product*/
+    expireDate Instant
+}
+
+/**Status of entities*/
+enum Status{
+	ACTIVE,
+    BLOCKED,
+    NEW,
+    PENDING,
+    SUCCESS,
+    REJECTED
+}
+
+
+
+relationship OneToOne {
+	/**Attachment(file) info*/
+	AttachmentContent{attachment} to
+ 	/**Attachment content*/
+    Attachment
+}
+
+
+relationship ManyToOne{
+	/**Parent catogory of the current category*/
+	Category{categoryParent} to
+    Category
+}
+
+relationship OneToOne{
+	/**Photo(Attachment, file) of the product*/
+	Product{photo} to
+    Attachment
+}
+relationship ManyToOne{
+	/**Measurement of the product*/
+	Product{measurement} to
+    Measurement
+
+    /**Category of the product*/
+    Product{category} to
+    Category
+}
+
+relationship ManyToMany {
+ 	/**User warehouses*/
+	Users{warehouse(name)} to
+    Warehouse{users}
+}
+
+relationship ManyToOne{
+	/**Warehouse for input*/
+	Input{warehouse} to
+    Warehouse
+
+    /**Supplier(provider)*/
+    Input{supplier} to
+    Users
+}
+
+relationship ManyToOne{
+	/**Warehouse for output*/
+	Output{warehouse} to
+    Warehouse
+
+    /**Client(Product recipient)*/
+    Output{client} to
+    Users
+}
+
+relationship ManyToOne{
+	/**Product*/
+	InputProduct{product} to
+    Product
+
+    /**Input*/
+    InputProduct{input} to
+    Input
+
+     /**Currency of input*/
+    InputProduct{currency} to
+    Currency
+}
+
+relationship ManyToOne{
+	/**Output*/
+    OutputProduct{output} to
+    Output
+
+    /**Product*/
+    OutputProduct{product} to Product
+
+      /**Currency of product output*/
+    OutputProduct{currency} to
+    Currency
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate * with pagination
+dto * with mapstruct
+filter *
+service * with serviceImpl
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

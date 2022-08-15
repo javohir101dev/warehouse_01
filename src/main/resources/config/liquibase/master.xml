@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql"/>
+    <property name="clobType" value="longvarchar" dbms="postgresql"/>
+    <property name="blobType" value="bytea" dbms="postgresql"/>
+    <property name="uuidType" value="uuid" dbms="postgresql"/>
+    <property name="datetimeType" value="datetime" dbms="postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112921_added_entity_AttachmentContent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112922_added_entity_Attachment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112923_added_entity_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112924_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112925_added_entity_Measurement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112926_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112927_added_entity_OutputProduct.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112928_added_entity_Warehouse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112929_added_entity_Users.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112930_added_entity_Input.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112931_added_entity_Output.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112932_added_entity_InputProduct.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220815112921_added_entity_constraints_AttachmentContent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112923_added_entity_constraints_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112926_added_entity_constraints_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112927_added_entity_constraints_OutputProduct.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112929_added_entity_constraints_Users.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112930_added_entity_constraints_Input.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112931_added_entity_constraints_Output.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220815112932_added_entity_constraints_InputProduct.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.9.2": {
+    "promptValues": {
+      "packageName": "uz.pevops",
+      "nativeLanguage": "en"
+    }
+  }
+}
