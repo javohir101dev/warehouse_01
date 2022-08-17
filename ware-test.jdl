@@ -18,7 +18,7 @@ entity Attachment {
 entity Category {
 	/**Category name*/
     name String required unique minlength(2) maxlength(20)
-    status Status
+    status Status required
 }
 
 /**Currency*/
@@ -41,14 +41,16 @@ entity Product {
     status Status required
     /**Unoque code of product*/
 	code String required unique
+    //The amount of the product that is available.
+    amount Long
 }
 
 /**OutPut Product(Only one type of product)*/
 entity OutputProduct{
 	/**Amount of the product*/
-    amount Long
+    amount Long required
     /**Price(total number of products)*/
-    price Long
+    price Long required
 }
 
 /**Warehouse(Storehouse)*/
@@ -107,6 +109,7 @@ entity InputProduct{
 /**Status of entities*/
 enum Status{
 	ACTIVE,
+    DELETED,
     BLOCKED,
     NEW,
     PENDING,

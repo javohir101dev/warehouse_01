@@ -1,1 +1,1 @@
-org.springframework.test.context.ContextCustomizerFactory = uz.pevops.config.TestContainersSpringContextCustomizerFactory
+org.springframework.test.context.ContextCustomizerFactory = uz.devops.config.TestContainersSpringContextCustomizerFactory

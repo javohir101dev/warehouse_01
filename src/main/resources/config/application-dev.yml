@@ -18,7 +18,7 @@ logging:
     ROOT: DEBUG
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
-    uz.pevops: DEBUG
+    uz.devops: DEBUG
 
 spring:
   devtools:

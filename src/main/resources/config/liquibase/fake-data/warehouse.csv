@@ -2,10 +2,10 @@ id;name;status
 1;Buckinghamshire back-end Som;PENDING
 2;Somoni;REJECTED
 3;Legacy invoice microchip;ACTIVE
-4;Tunisia;ACTIVE
+4;Tunisia;DELETED
 5;Mandatory streamline;SUCCESS
-6;pink;BLOCKED
-7;Fish invoice;SUCCESS
+6;pink;DELETED
+7;Fish invoice;PENDING
 8;GB Fresh Knolls;REJECTED
 9;Future interface;PENDING
 10;Account RSS Cyprus;REJECTED

@@ -3,9 +3,9 @@ id;name;status
 2;prima;PENDING
 3;Brand;SUCCESS
 4;ADP o;REJECTED
-5;Meado;REJECTED
-6;Loan;NEW
+5;Meado;SUCCESS
+6;Loan;BLOCKED
 7;Orche;PENDING
-8;Dolla;NEW
-9;clear;NEW
-10;enabl;PENDING
+8;Dolla;BLOCKED
+9;clear;BLOCKED
+10;enabl;NEW

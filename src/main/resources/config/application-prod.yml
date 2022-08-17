@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: INFO
     tech.jhipster: INFO
-    uz.pevops: INFO
+    uz.devops: INFO
 
 management:
   metrics:
